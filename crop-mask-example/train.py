@@ -81,7 +81,8 @@ num_timesteps, num_bands = train_data[0][0].shape
 class Model(torch.nn.Module):
     def __init__(self):
         super().__init__()
-        self.model = TransformerModel(c_in=num_bands, c_out=1)
+        self.model = TransformerModel(c_in=num_bands, c_out=1, d_model=128, 
+        n_head=1, d_ffn=128, dropout=0.1)
 
     def forward(self, x):
         with torch.no_grad():
